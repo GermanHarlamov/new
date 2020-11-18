@@ -1,0 +1,44 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Language"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" x:Class="Language.MainWindow"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="600" Width="1200" WindowStartupLocation="CenterScreen" WindowState="Maximized">
+    <Grid Background="LightSlateGray">
+        <Border Margin="50" Background="Cornsilk" CornerRadius="60" Padding="60">
+            <Border.Effect>
+                <DropShadowEffect BlurRadius="60" ShadowDepth="0" Color="Aquamarine" />
+            </Border.Effect>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="40"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                </Grid.RowDefinitions>
+                <StackPanel Orientation="Horizontal">
+                    <ComboBox x:Name="kolvoBox" Margin="0 0 20 0" Text="Все" HorizontalAlignment="Left" SelectionChanged="ComboBox_SelectionChanged" Grid.Row="0"/>
+                    <Button x:Name="BackButton" Click="BackButton_Click" Content="Предыдущая страница" Margin="0 0 20 0"/>
+                    <Button x:Name="NextButton" Click="NextButton_Click" Content="Следующая страница" Margin="0 0 20 0" />
+                    <Button x:Name="AddPhoto" Click="AddPhoto_Click" Content="Добавить фотографию"/>
+                </StackPanel>
+                <DataGrid IsReadOnly="True" x:Name="DataGridClient" AutoGenerateColumns="False" ColumnWidth="*" Grid.Row="1">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Идентификатор" Binding="{Binding ID}"/>
+                        <DataGridTextColumn Header="Имя" Binding="{Binding FirstName}"/>
+                        <DataGridTextColumn Header="Фамилия" Binding="{Binding LastName}"/>
+                        <DataGridTextColumn Header="Отчество" Binding="{Binding Patronymic}"/>
+                        <DataGridTextColumn Header="Дата рождения" Binding="{Binding Birthday}"/>
+                        <DataGridTextColumn Header="Пол" Binding="{Binding Gender.Name}"/>
+                        <DataGridTextColumn Header="Телефон" Binding="{Binding Phone}"/>
+                        <DataGridTextColumn Header="Адрес электронной почты" Binding="{Binding Email}"/>
+                        <DataGridTextColumn Header="Дата регистрации" Binding="{Binding RegistrationDate}"/>
+                        <DataGridTextColumn Header="Дата последнего посещения" Binding="{Binding DateOfLastVisit}"/>
+                        <DataGridTextColumn Header="Кол-во посещений" Binding="{Binding NumberOfVisits}"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </Grid>
+        </Border>
+    </Grid>
+</Window>
